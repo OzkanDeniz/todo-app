@@ -3,7 +3,9 @@ import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 
 const AddTodo = () => {
-  const [task, setTask] = useState<string>("");
+//   const [task, setTask] = useState<string>("");
+const [task, setTask] = useState("");
+const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setTask(e)
   return (
     <Box
       component="form"
@@ -18,6 +20,8 @@ const AddTodo = () => {
         variant="outlined"
         color="success"
         sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
+        // onChange={e=>setTask(e.target.value)}
+        onChange={handleChange}
       />
       <Button
         variant="contained"
