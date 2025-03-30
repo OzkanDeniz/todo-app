@@ -12,7 +12,8 @@ interface ITodoType {
 
 const Main = () => {
   // const [todos, setTodos] = useState([] as ITodoType[]);
-  const [todos, setTodos] = useState<Array<ITodoType>>([]);
+  // const [todos, setTodos] = useState<Array<ITodoType>>([]);
+  const [todos, setTodos] = useState<ITodoType[]>([]);
   return (
     <Container>
       <Header />
