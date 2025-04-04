@@ -29,13 +29,24 @@ const Main = () => {
     }
   };
 
-  const addTodo = async(task:string)=>{
+  //! 1.yol
+  // const addTodo = async(task:string)=>{
+  //   try {
+  //     await axios.post(url,{task,isDone:false})
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  //! 2.yol
+  type AddFn = (task: string) => Promise<void>; // Promise=Async
+  const addTodo: AddFn = async (task: string) => {
     try {
-      await axios.post(url,{task,isDone:false})
+      await axios.post(url, { task, isDone: false });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getTodos();
