@@ -1,4 +1,5 @@
 import { Grid, Typography } from "@mui/material";
+import TodoItem from "./TodoItem";
 
 //* 3.yol React.FC kullanımı
 //! React.FC, bir functional component'i ifade eder. Bileşenin işlevsel bir yapıda olduğunu ve React tarafından kullanılabileceğini belirtir.
@@ -47,12 +48,13 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
         >
           InProgress Todos
         </Typography>
-        {inProgressTodos.length ? inProgressTodos.map(todo =>)}
-        (
-        <Typography color="error" mt={3}>
-          No InProgress Todos!
-        </Typography>
-        )
+        {inProgressTodos.length ? (
+          inProgressTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+        ) : (
+          <Typography color="error" mt={3}>
+            No InProgress Todos!
+          </Typography>)
+        }
       </Grid>
       <Grid
         size={{ xs: 12, sm: 8, md: 5 }}
