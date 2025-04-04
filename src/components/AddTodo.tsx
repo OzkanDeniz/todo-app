@@ -18,6 +18,7 @@ const handleSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
   e.preventDefault()
   console.log(task)
   addTodo(task)
+  setTask("")
 
 }
   return (
@@ -37,6 +38,7 @@ const handleSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
         sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
         // onChange={e=>setTask(e.target.value)}
         onChange={handleChange}
+        value={task}
       />
       <Button
         variant="contained"
