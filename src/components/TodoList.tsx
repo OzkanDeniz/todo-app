@@ -1,7 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 import "./style.css";
 
-const TodoList = () => {
+interface ITodoList{
+    todos:ITodoType[]
+}
+
+const TodoList  = ({todos}:ITodoList) => {
   return (
     <Grid
       container
