@@ -10,7 +10,7 @@ interface IAddTodo{
 
 const AddTodo = ({addTodo}:IAddTodo) => {
 //   const [task, setTask] = useState<string>("");
-const [task, setTask] = useState("");
+const [task, setTask] = useState(""); //Type Inference özelliği sayesinde initial değerine göre otomatik type ataması yapıyor.
 
 const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setTask(e.target.value)
 
