@@ -28,6 +28,15 @@ const Main = () => {
       console.log(error);
     }
   };
+
+  const addTodo = async(task:string)=>{
+    try {
+      await axios.post(url,{task,isDone:false})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     getTodos();
   }, []);
