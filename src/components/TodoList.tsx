@@ -47,6 +47,7 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
         >
           InProgress Todos
         </Typography>
+        {inProgressTodos.length ? inProgressTodos.map(todo =>)}
         (
         <Typography color="error" mt={3}>
           No InProgress Todos!
