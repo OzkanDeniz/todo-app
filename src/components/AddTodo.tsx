@@ -8,7 +8,7 @@ interface IAddTodo{
   addTodo:(task:string)=>Promise<void>
 }
 
-const AddTodo = ({addTodo}:{addTodo:(task:string)=>Promise<void>}) => {
+const AddTodo = ({addTodo}:IAddTodo) => {
 //   const [task, setTask] = useState<string>("");
 const [task, setTask] = useState("");
 
