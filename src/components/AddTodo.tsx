@@ -2,7 +2,7 @@ import { Save } from "@mui/icons-material";
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 
-const AddTodo = () => {
+const AddTodo = ({addTodo}) => {
 //   const [task, setTask] = useState<string>("");
 const [task, setTask] = useState("");
 

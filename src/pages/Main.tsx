@@ -43,6 +43,7 @@ const Main = () => {
   const addTodo: AddFn = async (task: string) => {
     try {
       await axios.post(url, { task, isDone: false });
+      getTodos()
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +56,7 @@ const Main = () => {
   return (
     <Container>
       <Header />
-      <AddTodo />
+      <AddTodo addTodo={addTodo} />
     </Container>
   );
 };
