@@ -1,8 +1,13 @@
 import { DeleteOutline } from "@mui/icons-material";
 import { IconButton, ListItem, ListItemText } from "@mui/material";
-import React from "react";
+import React, { FC } from "react";
 
-const TodoItem = () => {
+interface ITodoItem {
+    todo:ITodoType
+}
+
+
+const TodoItem: FC<ITodoItem> = ({todo}) => {
   return (
     <div>
       <ListItem
@@ -14,7 +19,7 @@ const TodoItem = () => {
           </IconButton>
         }
       >
-        <ListItemText />
+        <ListItemText primary={todo.task} />
       </ListItem>
     </div>
   );
