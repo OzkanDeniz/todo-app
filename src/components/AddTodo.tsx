@@ -2,6 +2,13 @@ import { Save } from "@mui/icons-material";
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 
+//! 1.yol
+// const AddTodo = ({addTodo}:{addTodo:(task:string)=>Promise<void>}) => {
+
+interface IAddTodo{
+  addTodo:(task:string)=>Promise<void>
+}
+
 const AddTodo = ({addTodo}:{addTodo:(task:string)=>Promise<void>}) => {
 //   const [task, setTask] = useState<string>("");
 const [task, setTask] = useState("");
