@@ -9,11 +9,13 @@ import { Grid, Typography } from "@mui/material";
 
 //+ FC, "FunctionComponent" kelimelerinin kısaltmasıdır.
 
-interface ITodoList{
-    todos:ITodoType[]
+interface ITodoList {
+  todos: ITodoType[];
 }
 
-const TodoList: React.FC<ITodoList>= ({todos}) => {
+const TodoList: React.FC<ITodoList> = ({ todos }) => {
+  const inProgressTodos = todos.filter((todo) => !todo.isDone);
+  const completedTodos = todos.filter((todo) => todo.isDone);
   return (
     <Grid
       container
