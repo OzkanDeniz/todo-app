@@ -20,14 +20,14 @@ const Main = () => {
 
   const getTodos = async () => {
     try {
-      const res = await axios(url);
-      console.log(res);
+      const { data } = await axios(url);
+      setTodos(data);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    getTodos()
+    getTodos();
   }, []);
 
   return (
