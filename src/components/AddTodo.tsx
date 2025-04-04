@@ -17,7 +17,7 @@ const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement
 const handleSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
   e.preventDefault()
   console.log(task)
-  //addTodo()
+  addTodo(task)
 
 }
   return (
