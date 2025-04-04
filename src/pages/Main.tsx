@@ -17,10 +17,12 @@ const Main = () => {
   // const [todos, setTodos] = useState([] as ITodoType[]);
   // const [todos, setTodos] = useState<Array<ITodoType>>([]);
   const [todos, setTodos] = useState<ITodoType[]>([]); //!common use
+  console.log(todos);
 
   const getTodos = async () => {
     try {
       const { data } = await axios(url);
+      // const { data } = await axios<ITodoType[]>(url);
       setTodos(data);
     } catch (error) {
       console.log(error);

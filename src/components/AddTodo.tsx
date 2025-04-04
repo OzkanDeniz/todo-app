@@ -5,10 +5,14 @@ import { useState } from "react";
 const AddTodo = () => {
 //   const [task, setTask] = useState<string>("");
 const [task, setTask] = useState("");
+
 const handleChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setTask(e.target.value)
+
 const handleSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
   e.preventDefault()
-console.log(task)
+  console.log(task)
+  //addTodo()
+
 }
   return (
     <Box
