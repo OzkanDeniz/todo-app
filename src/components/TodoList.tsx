@@ -14,9 +14,10 @@ import "./style.css";
 interface ITodoList {
   todos: ITodoType[];
   toggleTodo: ToggleFn;
+  deleteTodo: DeleteFn
 }
 
-const TodoList: React.FC<ITodoList> = ({ todos, toggleTodo }) => {
+const TodoList: React.FC<ITodoList> = ({ todos, toggleTodo, deleteTodo }) => {
   const inProgressTodos = todos.filter((todo) => !todo.isDone);
   const completedTodos = todos.filter((todo) => todo.isDone);
   return (
@@ -52,7 +53,7 @@ const TodoList: React.FC<ITodoList> = ({ todos, toggleTodo }) => {
         </Typography>
         {inProgressTodos.length ? (
           inProgressTodos.map((todo) => (
-            <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
+            <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
           ))
         ) : (
           <Typography color="error" mt={3}>
@@ -82,7 +83,7 @@ const TodoList: React.FC<ITodoList> = ({ todos, toggleTodo }) => {
         </Typography>
         {completedTodos.length ? (
           completedTodos.map((todo) => (
-            <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
+            <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
           ))
         ) : (
           <Typography color="error" mt={3}>

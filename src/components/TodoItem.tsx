@@ -3,24 +3,24 @@ import { IconButton, ListItem, ListItemText } from "@mui/material";
 import React, { FC } from "react";
 
 interface ITodoItem {
-    todo:ITodoType
-    toggleTodo:ToggleFn
+  todo: ITodoType;
+  toggleTodo: ToggleFn;
+  deleteTodo: DeleteFn;
 }
 
-
-const TodoItem: FC<ITodoItem> = ({todo,toggleTodo}) => {
+const TodoItem: FC<ITodoItem> = ({ todo, toggleTodo, deleteTodo }) => {
   return (
     <div>
       <ListItem
         disableGutters
         sx={{ padding: "1rem", cursor: "pointer" }}
         secondaryAction={
-          <IconButton aria-label="comment">
-            <DeleteOutline sx={{ "&:hover": { color: "red" } }} />
+          <IconButton aria-label="comment" >
+            <DeleteOutline sx={{ "&:hover": { color: "red" } }} onClick={()=>deleteTodo(todo.id)} />
           </IconButton>
         }
       >
-        <ListItemText primary={todo.task} onClick={()=>toggleTodo(todo)}/>
+        <ListItemText primary={todo.task} onClick={() => toggleTodo(todo)} />
       </ListItem>
     </div>
   );
