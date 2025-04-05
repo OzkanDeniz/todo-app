@@ -8,12 +8,14 @@ export enum SweetIcon {
     QUESTION = "question",
   }
 
+//   type Icons ="warning" | "error"
+
 export const notify = (msg:string,icon:SweetIcon) => {
   Swal.fire({
     title: "Todo App!",
     text: msg,
     icon: icon,
-    timer:300,
+    timer:3000,
     timerProgressBar:true,
   });
 };

@@ -4,6 +4,7 @@ import AddTodo from "../components/AddTodo";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TodoList from "../components/TodoList";
+import { notify, SweetIcon } from "../helper/sweetAlert";
 
 // interface ITodoType {
 //   task: string;
@@ -44,9 +45,11 @@ const Main = () => {
   const addTodo: AddFn = async (task) => {
     try {
       await axios.post(url, { task, isDone: false });
+      notify("Todo Created!", SweetIcon.SUCCESS)
       getTodos();
     } catch (error) {
       console.log(error);
+      notify("Todo Not Created!", SweetIcon.ERROR)
     }
   };
 
