@@ -41,7 +41,7 @@ const Main = () => {
 
   //! 2.yol
   // type AddFn = (task: string) => Promise<void>; // Promise=Async
-  const addTodo: AddFn = async (task: string) => {
+  const addTodo: AddFn = async (task) => {
     try {
       await axios.post(url, { task, isDone: false });
       getTodos()
@@ -50,9 +50,9 @@ const Main = () => {
     }
   };
 
-  const toggleTodo: AddFn = async (task: string) => {
+  const toggleTodo: ToggleFn = async (todo) => {
     try {
-      await axios.post(url, { task, isDone: false });
+      await axios.put(`${url}/${todo.id}`, { ...todo, isDone:!todo.isDone });
       getTodos()
     } catch (error) {
       console.log(error);
