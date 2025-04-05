@@ -44,7 +44,7 @@ const Main = () => {
   const addTodo: AddFn = async (task) => {
     try {
       await axios.post(url, { task, isDone: false });
-      getTodos()
+      getTodos();
     } catch (error) {
       console.log(error);
     }
@@ -52,8 +52,17 @@ const Main = () => {
 
   const toggleTodo: ToggleFn = async (todo) => {
     try {
-      await axios.put(`${url}/${todo.id}`, { ...todo, isDone:!todo.isDone });
-      getTodos()
+      await axios.put(`${url}/${todo.id}`, { ...todo, isDone: !todo.isDone });
+      getTodos();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteTodo: DeleteFn = async (id) => {
+    try {
+      await axios.delete(`${url}/${id}`);
+      getTodos();
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +76,7 @@ const Main = () => {
     <Container>
       <Header />
       <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo}/>
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
     </Container>
   );
 };
