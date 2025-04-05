@@ -40,7 +40,7 @@ const Main = () => {
   // }
 
   //! 2.yol
-  type AddFn = (task: string) => Promise<void>; // Promise=Async
+  // type AddFn = (task: string) => Promise<void>; // Promise=Async
   const addTodo: AddFn = async (task: string) => {
     try {
       await axios.post(url, { task, isDone: false });

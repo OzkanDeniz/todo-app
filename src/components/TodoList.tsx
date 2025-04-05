@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import TodoItem from "./TodoItem";
+import "./style.css"
 
 //* 3.yol React.FC kullanımı
 //! React.FC, bir functional component'i ifade eder. Bileşenin işlevsel bir yapıda olduğunu ve React tarafından kullanılabileceğini belirtir.
