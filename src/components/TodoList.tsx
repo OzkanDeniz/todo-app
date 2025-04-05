@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import TodoItem from "./TodoItem";
-import "./style.css"
+import "./style.css";
 
 //* 3.yol React.FC kullanımı
 //! React.FC, bir functional component'i ifade eder. Bileşenin işlevsel bir yapıda olduğunu ve React tarafından kullanılabileceğini belirtir.
@@ -13,10 +13,10 @@ import "./style.css"
 
 interface ITodoList {
   todos: ITodoType[];
-  toggleTodo: ToggleFn
+  toggleTodo: ToggleFn;
 }
 
-const TodoList: React.FC<ITodoList> = ({ todos }) => {
+const TodoList: React.FC<ITodoList> = ({ todos, toggleTodo }) => {
   const inProgressTodos = todos.filter((todo) => !todo.isDone);
   const completedTodos = todos.filter((todo) => todo.isDone);
   return (
@@ -51,12 +51,14 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
           InProgress Todos
         </Typography>
         {inProgressTodos.length ? (
-          inProgressTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+          inProgressTodos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
+          ))
         ) : (
           <Typography color="error" mt={3}>
             No InProgress Todos!
-          </Typography>)
-        }
+          </Typography>
+        )}
       </Grid>
       <Grid
         size={{ xs: 12, sm: 8, md: 5 }}
@@ -72,19 +74,21 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
       >
         <Typography
           className="title"
-          sx={{color:"green"}}
+          sx={{ color: "green" }}
           align="center"
           variant="h4"
         >
           Completed Todos
         </Typography>
         {completedTodos.length ? (
-          completedTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+          completedTodos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
+          ))
         ) : (
           <Typography color="error" mt={3}>
             No Completed Todos!
-          </Typography>)
-        }
+          </Typography>
+        )}
       </Grid>
     </Grid>
   );

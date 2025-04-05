@@ -4,10 +4,11 @@ import React, { FC } from "react";
 
 interface ITodoItem {
     todo:ITodoType
+    toggleTodo:ToggleFn
 }
 
 
-const TodoItem: FC<ITodoItem> = ({todo}) => {
+const TodoItem: FC<ITodoItem> = ({todo,toggleTodo}) => {
   return (
     <div>
       <ListItem
@@ -19,7 +20,7 @@ const TodoItem: FC<ITodoItem> = ({todo}) => {
           </IconButton>
         }
       >
-        <ListItemText primary={todo.task} />
+        <ListItemText primary={todo.task} onClick={()=>toggleTodo(todo)}/>
       </ListItem>
     </div>
   );
