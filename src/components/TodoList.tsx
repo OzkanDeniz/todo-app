@@ -70,17 +70,19 @@ const TodoList: React.FC<ITodoList> = ({ todos }) => {
       >
         <Typography
           className="title"
-          sx={{ color: "green" }}
+          sx={{color:"green"}}
           align="center"
           variant="h4"
         >
           Completed Todos
         </Typography>
-        (
-        <Typography color="error" mt={3}>
-          No Completed Todos!
-        </Typography>
-        )
+        {completedTodos.length ? (
+          completedTodos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+        ) : (
+          <Typography color="error" mt={3}>
+            No Completed Todos!
+          </Typography>)
+        }
       </Grid>
     </Grid>
   );
