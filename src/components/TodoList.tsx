@@ -13,6 +13,7 @@ import "./style.css"
 
 interface ITodoList {
   todos: ITodoType[];
+  toggleTodo: ToggleFn
 }
 
 const TodoList: React.FC<ITodoList> = ({ todos }) => {

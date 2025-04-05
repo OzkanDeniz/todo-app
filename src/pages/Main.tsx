@@ -67,7 +67,7 @@ const Main = () => {
     <Container>
       <Header />
       <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
     </Container>
   );
 };
