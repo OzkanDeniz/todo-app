@@ -8,3 +8,4 @@ interface ITodoType {
 //   export etmemize sağlayan sayfa
 
 type AddFn = (task: string) => Promise<void>
+type ToggleFn = (todo: ITodoType) => Promise<void>
